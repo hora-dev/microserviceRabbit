@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class MessageControllerTest {
+class MessageControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -22,7 +22,7 @@ public class MessageControllerTest {
     private RabbitTemplate rabbitTemplate;
 
     @Test
-    public void testSendMessage() throws Exception {
+    void testSendMessage() throws Exception {
         String message = "Hola desde el test";
         mockMvc.perform(post("/api/message")
                         .content(message))

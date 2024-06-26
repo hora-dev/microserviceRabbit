@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class MessageController {
 
-    @Autowired
     private RabbitTemplate rabbitTemplate;
+
+    @Autowired
+    MessageController(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
+    }
 
     @PostMapping("/message")
     public String sendMessage(@RequestBody String message) {
